@@ -1,0 +1,44 @@
+	장고 관리자 페이지만 justin이고 나머지는 다 kyc0816이다
+
+
+	myvenv 아니고 myenv로 했다
+
+
+
+	프로그램 애플리케이션 확장하기(https://tutorial.djangogirls.org/ko/extend_your_application/)는
+	좀 뭔소린지 모르게 써놨네... 뭐 정리해보자면 앞에서 modesl.py안에 들어가는 Post 모델 만들었고...
+	모델 url 뷰 템플릿 다 만들어봤고 CSS도 해봤으니까... 페이지 내에서 링크 달아서 누르면
+	다른 페이지로 가게 해볼게. html 파일 안에서 링크 형태는
+		<h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+	이런 식으로 달아야되고, 그 링크를 받아주는 애는 blog/urls.py 안에서 바꿔줘야되는데
+		url(r'^post/(?P<pk>[0-9]+)/$', views.post_detail, name='post_detail')
+	이렇게 정규 표현식 적어준단다. 정규 표현식 설명 적어놓은거 보면 알겠지만,
+		"http://127.0.0.1:8000/post/라고 하면 post/ 다음에 숫자가 없으므로 해당 사항이 아니지만,
+		http://127.0.0.1:8000/post/1234567890/는 완벽하게 매칭됩니다."
+	라고 한다.
+	암튼.. 뷰는 그 글 자체를 뷰라고 하는 것 같고 (post_list도 있고 post_detail도 있고... blog/views.py에서 확인)
+	
+	*****순서대로 써보자면, blog/ulrs.py에 가보면 url들에 대해 보여주는 페이지를 정의해놨다. 아래와 같이,
+		url(r'^$', views.post_list, name='post_list'),
+	이렇게 단순히 홈피 주소만 치면 홈피, 즉 post_list 화면으로 보내주고, 혹은 다음과 같이
+		url(r'^post/(?P<pk>\d+)/$', views.post_detail, name='post_detail'),
+	이렇게 url 뒷부분에 숫자를 추가해줬을 때의 상황은 위에 보듯이 post_detail 뷰를 보여주라고 되어 있다.
+	그럼 이제 그 뷰를 보여주면 무슨 일이 일어나는지 보러 blog/views.py에 가보자. 가보면 아래와 같이,
+		def post_detail(request, pk):
+	이렇게 post_detail 뷰를 정의해 놓은 부분이 있다. 먼저, 에러 상황을 대비해서 아래와 같이
+		post = get_object_or_404(Post, pk=pk)
+	를 써주었다. 즉 request를 받을 때 같이 받은 pk에 해당하는 Post가 없으면 에러 404 페이지를 띄워주고,
+	있으면 해당 Post를 불러와서 post에 저장한다. 이 때 'Post'라는 애가 어떻게 생겼는지는, 맨 위에 보면
+		from .models import Post
+	라고 돼있는거에서 알 수 있듯이, models라는 것에서 정의를 해놨다. models에 보면 거의 자바에서 쓰는 클래스다.
+	즉 어떤 구성 요소(attribute?)를 가지고 있다든지, 어떤 메소드를 가지고 있다든지 등등. 암튼 그러하고,
+	그리고 다시 views.py의 def post_detail(request, pk): 로 돌아와서, post = get_object_or_404(Post, pk=pk)의
+	다음 줄인
+		return render(request, 'blog/post_detail.html', {'post': post})
+	를 살펴보면, 아까 Post를 받아온 post 변수를 통해 blog/post_detail.html를 render 해준다. 이 때
+	post_detail.html 파일은 template인 것이다. blog/templates/blog 폴더 안에 이 temlplate이 html 형태로
+	들어있어야 render 가 되겠지? 그래서 없는 상태에서 post_detail.html을 불러와야하는 상황을 만들면, 즉 여기서는
+	글의 post_list 뷰에서 post의 제목을 클릭해서 post_detail로 들어가고자 하면 'TemplateDoesNotExist' 라는
+	에러 메시지가 뜬다 ㅋㅋ 그리고 url 자체에서 뒤에 터무니 없는 숫자를 쳤을 때, 즉 http://127.0.0.1:8000/의 뒤에
+	http://127.0.0.1:8000/post/15/라고 이어 붙였을 때에는, 위에서 본 것처럼 404가 뜬다. (pk가 없어서 render까지
+	가지도 않은거다.)

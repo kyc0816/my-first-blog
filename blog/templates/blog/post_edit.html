@@ -1,0 +1,10 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h1 id="editH1">작성하기</h1>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <li>비밀번호를 바꾸고 싶으시면 새 비밀번호를 입력하고 작성 완료를 눌러주세요</li>
+        <button type="submit" class="save btn btn-default">작성 완료</button>
+    </form>
+{% endblock %}

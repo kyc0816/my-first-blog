@@ -1,0 +1,4 @@
+로컬은 http://127.0.0.1:8000/admin이고
+웹은 http://kyc0816.pythonanywhere.com/admin이다.
+
+로컬은 run server를 해줘야한다. 웹은 항상 돌리고 있음.

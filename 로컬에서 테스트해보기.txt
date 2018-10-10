@@ -1,0 +1,14 @@
+
+	1. cmd에서 가서 아래 작업을 해줘서 vurtual environment가 있는 디렉토리로 간다.(**myvenv가 아니라 myenv임에 주의)
+
+		cd djangokyc
+
+	2. 아래의 코드로 vurtual environment를 활성화시키는 작업을 해준다.
+
+		myenv\Scripts\activate
+
+	3. 아래의 코드로 server를 run해준다.
+
+		python manage.py runserver
+
+	4. 로컬 서버(http://127.0.0.1:8000/)에 가서 확인을 한다.

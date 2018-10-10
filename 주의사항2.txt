@@ -1,0 +1,100 @@
+	blog/template/blog에 들어있는 post_detail.html 안에 보면 아래와 같은 구절이 있는데,
+
+	{% if post.published_date %}
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+        {% endif %}
+
+	즉 장고 형식 사용해서 if 문을 쓸 수 있는거다. 저 if문은 post.published_date가 있는지 없는지 검사하는
+	구문이다.
+
+
+
+
+
+	끝에서 두 번째 단원인 'Django(장고) 폼'에 나온 것과 같이, 폼이라는거를 만들 수 있다. 폼은 입력할 수 있는 필드이다.
+	blog/forms.py 라는 파일 안에 만든다. 앞서 만든 models.py에서 정의했던 Post 객체를 사용해서 만든다. 내가 만든 
+	models.py에서 Post를 import 해오고, 이미 있는 django에서 forms라는거를 import 해온다. 그리고 이 둘을 가지고 
+	PostForm을 만든다. (ㅋㅋ) 그리고 이 PostForm 클래스는 forms.ModelForm 객체이다. 즉 ModelForm 객체이다. 그 밑에
+
+    		class Meta:
+        		model = Post
+        		fields = ('title', 'text',)
+
+	이라는 부분은, PostForm이라는 애를 구성하는 부분인데, model은 Post라는 형태를 띄고 fields의 종류에는 title과
+	text가 있다는 것을 알려주는 부분이다. 물론 Post 객체를 만드려면 title과 text 이외에도 author, created_date가
+	있어야하지만, 이는 입력 받지 않고 자동으로 코드를 통해 받아올 것이다.
+
+	이제 폼 자체는 만들었으니까 이거를 구동시켜줄 링크, URL, 뷰 그리고 템플릿을 만들 것이다. 일단 base.html로 가서,
+	page-header, 즉 맨 위에 뜨는 제목에다가 a href="{% url 'post_new' %}", 즉 post_new라는 url로 연결해주는 링크를
+	걸어줄 것이다. 그리고 blog/urls.py에 들어가서 정규식 표현을 통해 url 규칙을 추가해준다. 아래 코드
+
+		url(r'^post/new/$', views.post_new, name='post_new')
+
+	를 통해 post_new에 대한 url 규칙을 만들어줬다. 그럼 이제 blog/views.py 파일로 가야겠지? 가서, import 부분에서,
+	아까 forms에서 만든 PostForm을 불러오기 위해
+
+		from .forms import PostForm
+	
+	를 추가해준다. 그리고 views.py 파일에는 아래 구문을 입력해서 post_new에 대한 정의를 해준다.
+
+		def post_new(request):
+    			form = PostForm()
+    			return render(request, 'blog/post_edit.html', {'form': form})
+
+	잘 보면 post_edit이라는 html을 하나 더 만들어야되고... PostForm()을 받아와서 form이라는 애한테 담고, 결국 
+	render할 때 템플렛한테 같이 담아서 준다. 이제 post_edit.html을 채워볼 건데, 걍 결과물을 봐라. 아래 코드다.
+
+		{% extends 'blog/base.html' %}
+
+		{% block content %}
+		    <h1>New post</h1>
+		    <form method="POST" class="post-form">{% csrf_token %}
+		        {{ form.as_p }}
+		        <button type="submit" class="save btn btn-default">Save</button>
+		    </form>
+		{% endblock %}
+
+	잘 보면 {{ form.as_p }}라는 애가 핵심이다. 쟤가 form field인거다. 쟤를 채워넣어야한다. 밑에는 버튼이고,
+	<form> 탭으로 둘러쌓여 있는데 보면 method="POST"이고.. 뒤에 {% csrf_token %}는 보안 토큰이란다.
+	이렇게 작성하고 새로 고침 해주면 입력 할 수 있게 바뀐게 보일거다. 근데 저장이나 검증에 관한거는
+	설정한 적이 없으니 글을 쓰고 submit을 해도 저장이 되거나 추가가 되지 않는다. 그 부분을 다뤄보자...
+	좀 복잡하니까 세부 설명은 나중에 이 사이트 참고하는걸로 하고, 그냥 하라는대로 닥치는대로 해보겠다.
+	결론적으로는 def post_new(request): 에 내용이 추가되어서 아래와 같이 바뀌게 된다.
+
+		def post_new(request):
+		    if request.method == "POST":
+		        form = PostForm(request.POST)
+		        if form.is_valid():
+		            post = form.save(commit=False)
+		            post.author = request.user
+		            post.published_date = timezone.now()
+		            post.save()
+		            return redirect('post_detail', pk=post.pk)
+		    else:
+		        form = PostForm()
+		    return render(request, 'blog/post_edit.html', {'form': form})
+
+	그리고 맨 위의 import 부분에서는, from django.shortcuts 이 부분에서 import 하는 것들에 redirect도 추가해준다.
+	자 이제 어느정도 끝인건가... 암튼 이하 생략
+
+
+	글 수정하는 파트에서, 설명이 좀 이상한데 views.py에서 def post_edit 여기에서
+	위의 post = 이거는 form = PostForm(request.POST, instance=post) 이게 맞고
+	밑에서는 form = PostForm(instance=post) 이게 맞다.	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

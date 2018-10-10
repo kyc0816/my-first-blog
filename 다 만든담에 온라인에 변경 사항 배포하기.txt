@@ -1,0 +1,21 @@
+
+	1. cmd에서 가서 아래 작업을 해줘서 git push할 준비 한다.
+
+		cd djangokyc
+
+	2. 아래의 순서대로 git 작업을 해준다
+
+		git status
+		git add --all .	
+		git status
+		git commit -m "어쩌고저쩌고"
+		git push
+
+	3. pythonAnywhere 가서 bash console 열어서 아래 작업을 해준다.
+
+		cd my-first-blog
+		git pull
+
+	4. Web tab에 가서 Reload를 누른다.
+
+	5. 해당 도메인(http://kyc0816.pythonanywhere.com/)으로 들어가서 확인을 해본다.

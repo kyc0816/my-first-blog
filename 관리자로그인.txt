@@ -1,0 +1,13 @@
+로컬
+
+Username 		justin
+Email address		justinlearningdeep@gmail.com
+Password		당근이와콩이181006
+
+웹
+
+~0816
+~10%
+
+Pythonanywhere에서 sql 비밀번호 (쓸 일이 없는 듯)
+a8fiP8SNrwq57gy
