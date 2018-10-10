@@ -19,3 +19,6 @@
 	4. Web tab에 가서 Reload를 누른다.
 
 	5. 해당 도메인(http://kyc0816.pythonanywhere.com/)으로 들어가서 확인을 해본다.
+
+	6. 10/10 아 ㅅㅂ 머가 문제였는지 알 것 같다 파이썬애니웨어 bash에서 python manage.py migrate 하는게 있네
+		이걸로 했어야 되는가보다...
