@@ -12,6 +12,7 @@ def post_list(request):
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
+    print(post.isFromDetailToEdit)
 	# 이 아래로 주석임  
     if request.method == "POST":
     	password = request.POST['password']
