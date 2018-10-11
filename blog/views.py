@@ -39,7 +39,9 @@ def post_new(request):
             post.isFromDetailToEdit = '0'
             post.save()
             return redirect('post_detail', pk=post.pk)
-    else:
+    else: #url 통해서 직접 오거나 +버튼 눌러서 오는 경우이다.
+        try:
+            print(request.user)
         form = PostForm()
     return render(request, 'blog/post_edit.html', {'form': form})
 

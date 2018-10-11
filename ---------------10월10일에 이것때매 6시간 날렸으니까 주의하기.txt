@@ -1,0 +1,42 @@
+
+
+
+		models.py에서 password랑 isFromDetailToEdit 추가한게 로컬에선 되는데 웹에선 안됐다.
+		열심히 python manage.py migrate 해봤지만 안됐다.
+
+		포기하고 새로 만들려던 찰나에 한 번 하던거나 마저 해보자 해서 깃헙 레포지토리
+		통째로 날리고 djangokyc 폴더에 sqlite.3(?)랑 .git도 날리고(로컬 git)
+		파이썬애니웨어 웹앱이랑 files에 있는 my-first-blog도 날린담에 djangogirls 튜토리얼 처음부터
+		따라했다. 그러다보니 발견했다.
+
+
+
+
+		중간에 파이썬애니웨어 bash에서 python manage.py migrate 하는게 있네........
+		이걸로 했어야 되는가보다..........
+
+		즉 로컬에서만 열심히 migrate 해서 되는게 아니라
+			
+
+		파이썬애니웨어 bash에서 python manage.py migrate
+
+
+		
+		해야되는 거였나보다. (아닐 수도 있다. 걍 뒤엎어서 된 거일수도.)
+
+		이게 맞는지 아닌지는 models.py에서 NFC_ID를 추가해서 알아보겠다.
+
+
+		----**** /// 추가 : 그림을 통해 보는 설명 /// ****----
+
+		1. pythonanywhere_pic_1 에서 보듯이, 파이썬애니웨어 bash는 온라인 깃헙에서 clone해와서
+		파이썬애니웨어의 files의 my-first-blog에 넣는다. tree my-first-blog 해서 파이썬애니웨어에
+		여기에 넣어진 파일들을 볼 수 있다.
+		2. 그리고나서 pythonanywhere_pic_migrate을 보듯이 migrate를 해줘서 올려준다. 그러면 알 수 있다. 뭐냐면,
+		3. pythonanywhere_pic_2를 보듯이 deactivate를 해서 venv를 나가서 다시 tree를 해보면
+		blog 아래에 migrations가 있는 것을 볼 수 있다. 즉,
+		"migrations가 파이썬애니웨어의 files의 my-first-blog에 올라간 것이다."!!!
+		
+		이미 위의 글들을 통해 유추 가능한 사실이긴 하지만 직접 tree를 통해 알아보았다.
+		
+
