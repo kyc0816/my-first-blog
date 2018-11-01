@@ -60,20 +60,20 @@ h1, h2, h3, h4 {
     color: #000000;
 }
 
-/*.petinfo {        //효과가 없다. 왜일까?
-    width: 100%;
+.petinfo {        
+    margin-top: 100px;
 }
 
-.petinfotable {
+/*.petinfotable {   //효과가 없다. 왜일까?
     width: 50%;
     margin : 0 auto;
-}
+}*/
 
 .ownerinfo {
-    width: 100%;
+    margin-top: 100px;
 }
 
-.ownerinfoinfotable {
+/*.ownerinfoinfotable {
     width: 50%;
     margin : 0 auto;
 }*/
