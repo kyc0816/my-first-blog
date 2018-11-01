@@ -13,9 +13,9 @@ class Post(models.Model):
     ifneutralized = models.CharField(max_length=20, default='Is your pet neutralized?')    #default='중성화 여부를 입력해주세요(함/안함)')
     ifvaccinatedrabies = models.CharField(max_length=30, default='Is your pet vaccinated against rabies?')    #default='광견병 백신 접종 여부를 입력해주세요(접종함/안함)')
 
-    contact1 = models.CharField(max_length=30, default='Your Phone Number')    #default='비상연락망을 입력해주세요')
-    contact2 = models.CharField(max_length=50, default='Other Phone Number')    #default='추가 비상연락망을 입력해주세요\n(없으시면 없음이라고 입력해주세요)')
-    address = models.CharField(max_length=100, default='Your Home Address')    #default='주소를 입력해주세요\n(없으시면 없음이라고 입력해주세요)')
+    contact1 = models.CharField(max_length=30, default='Phone number 1')    #default='비상연락망을 입력해주세요')
+    contact2 = models.CharField(max_length=50, default='Phone number 2')    #default='추가 비상연락망을 입력해주세요\n(없으시면 없음이라고 입력해주세요)')
+    address = models.CharField(max_length=100, default='주소를 입력해주세요\n(없으시면 없음이라고 입력해주세요)')
     # 이 아래 줄이 비밀번호 땜에 추가한 것임
     password = models.CharField(max_length=4, default='0000')
     isFromDetailToEdit = models.CharField(max_length=1, default='0')  #이거 '0'으로 바꿔봤는데 에러나면 다시 그냥 0으로 바꾸기
