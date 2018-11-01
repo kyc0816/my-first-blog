@@ -10,12 +10,17 @@
     text-decoration: none;
 }
 
+.ourTop {
+    font-family: 'Lobster', 'meiryo', 'Nanum+Gothic', cursive;
+}
+
 .content {
+    font-family: 'Lobster', 'meiryo', 'Jua', cursive;
     margin-left: 40px;
 }
 
 h1, h2, h3, h4 {
-    font-family: 'Lobster', 'meiryo', 'Nanum Gothic', cursive;
+    font-family: 'Lobster', 'meiryo', 'Jua', cursive;
 }
 
 .date {
@@ -66,7 +71,7 @@ h1, h2, h3, h4 {
 }*/
 
 .listTitle {
-	font-family: 'Lobster', 'meiryo', 'Nanum Gothic', sans-serif;
+	font-family: 'Lobster', 'meiryo', 'Jua', sans-serif;
 	margin-bottom: 40px;
 	margin-top: 30px;
     display: inline-block;
@@ -75,12 +80,13 @@ h1, h2, h3, h4 {
 }
 
 .listTitleType {
+    font-family: 'Lobster', 'meiryo', 'Jua', cursive;
     display: inline-block;
     background-color: #888888;
 }
 
 #editH1 {
-	font-family: 'Lobster', 'meiryo', 'Nanum Gothic', cursive;
+	font-family: 'Lobster', 'meiryo', 'Jua', cursive;
 	font-size: 20pt;
 	margin-bottom: 40px;
 }
