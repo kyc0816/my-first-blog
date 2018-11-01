@@ -13,70 +13,24 @@
             <h1>펫 정보</h1>
             <table class="petinfotable">
               <tbody>
-                <tr>
-                    <td>
-                      <p class="listTitleType">이름 :&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                    </td>
-                    <td>
-                      <p class="listTitle">{{ post.title }}</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                      <p class="listTitleType">종 :&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                    </td>
-                    <td>
-                      <p class="listTitle">{{ post.breed }}</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                      <p class="listTitleType">생년월일 :&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                    </td>
-                    <td>
-                      <p class="listTitle">{{ post.birthdate }}</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                      <p class="listTitleType">중성화여부 :&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                    </td>
-                    <td>
-                      <p class="listTitle">{{ post.ifneutralized }}</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                      <p class="listTitleType">광견병접종여부 :&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                    </td>
-                    <td>
-                      <p class="listTitle">{{ post.ifvaccinatedrabies }}</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                      <p class="listTitleType">반려동물 등록번호 :&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                    </td>
-                    <td>
-                      <p class="listTitle">{{ post.registrationnumber }}</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                      <p class="listTitleType">특이사항 :&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                    </td>
-                    <td>
-                      <p class="listTitleDetails">{{ post.text|linebreaksbr }}</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                      <p class="listTitleType">건강상의 주의사항 :&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                    </td>
-                    <td>
-                      <p class="listTitleDetails">{{ post.healthwarnings|linebreaksbr }}</p>
-                    </td>
-                </tr>
+                <tr><td><p class="listTitleType">이름 :&nbsp;&nbsp;&nbsp;&nbsp;</p></td><td><p class="listTitle">{{ post.title }}</p></td></tr>
+                <tr><td><p class="listTitleType">종 :&nbsp;&nbsp;&nbsp;&nbsp;</p></td><td><p class="listTitle">{{ post.breed }}</p></td></tr>
+                <tr><td><p class="listTitleType">생년월일 :&nbsp;&nbsp;&nbsp;&nbsp;</p></td><td><p class="listTitle">{{ post.birthdate }}</p></td></tr>
+                
+                <tr><td><p class="listTitleType">중성화여부 :&nbsp;&nbsp;&nbsp;&nbsp;</p></td>
+                <td><p class="listTitle">{{ post.ifneutralized }}</p></td></tr>
+                
+                <tr><td><p class="listTitleType">광견병접종여부 :&nbsp;&nbsp;&nbsp;&nbsp;</p></td>
+                <td><p class="listTitle">{{ post.ifvaccinatedrabies }}</p></td></tr>
+                
+                <tr><td><p class="listTitleType">반려동물등록번호 :&nbsp;&nbsp;&nbsp;&nbsp;</p></td>
+                <td><p class="listTitle">{{ post.registrationnumber }}</p></td></tr>
+                
+                <tr><td><p class="listTitleType">특이사항 :&nbsp;&nbsp;&nbsp;&nbsp;</p></td>
+                <td><p class="listTitleDetails">{{ post.text|linebreaksbr }}</p></td></tr>
+
+                <tr><td><p class="listTitleType">건강상의 주의사항 :&nbsp;&nbsp;&nbsp;&nbsp;</p></td>
+                <td><p class="listTitleDetails">{{ post.healthwarnings|linebreaksbr }}</p></td></tr>
               </tbody>
             </table>
             
