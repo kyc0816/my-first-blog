@@ -10,7 +10,7 @@
         {% endif %}
         {% endif %}
         <div class="petinfo">
-            <div><img src="/static/pet.jpg" alt="img" id="icon_info"/><h1>펫 정보</h1></div>
+            <div><img src="/static/pet.jpg" alt="img" id="icon_info"/><h1 id="text_info">펫 정보</h1></div>
             <table class="petinfotable">
               <tbody>
                 <tr><td><p class="listTitleType">이름 :&nbsp;&nbsp;&nbsp;&nbsp;</p></td><td><p class="listTitle">{{ post.title }}</p></td></tr>
@@ -37,7 +37,7 @@
             
         </div>
         <div class="ownerinfo">
-            <div><img src="/static/owner.jpg" alt="img" id="icon_info"/><h1>주인 정보</h1></div>
+            <div><img src="/static/owner.jpg" alt="img" id="icon_info"/><h1 id="text_info">주인 정보</h1></div>
             <table class="ownerinfotable">
               <tbody>
                 <tr><td><p class="listTitleType">이름 :&nbsp;&nbsp;&nbsp;&nbsp;</p></td><td><p class="listTitle">{{ post.number }}</p></td></tr>
