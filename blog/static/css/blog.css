@@ -84,6 +84,14 @@ h1, h2, h3, h4 {
     padding-left: 50px;*/
 }
 
+.listTitleDetails {
+    font-family: 'Lobster', 'meiryo', 'Jua', sans-serif;
+    font-size: 15pt;
+    display: inline-block;
+/*    margin-left: 50px;        //효과가 없다. 왜일까?
+    padding-left: 50px;*/
+}
+
 
 #editH1 {
 	font-family: 'Lobster', 'meiryo', 'Jua', cursive;
