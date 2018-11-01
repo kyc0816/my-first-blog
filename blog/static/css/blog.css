@@ -12,10 +12,9 @@
 }
 
 #icon_info {
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
     float: left;
-    transform: translate(15px,15px);
 }
 
 .content {
