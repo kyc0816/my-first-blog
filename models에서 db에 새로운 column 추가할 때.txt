@@ -1,3 +1,13 @@
+models.py에 넣고 forms.py에 넣고(직접 입력일 경우)
+post_detail에서 table에도 (필요하면) 넣고
+
+그리고 한글이 들어가는 모든 파이썬 파일에는 맨 위에 utf-8, 즉
+# -*- coding: utf-8 -*- 를 추가해줘야한다. (로컬은 갠춘한데 파이썬애니웨어가 못알아먹음)
+
+
+-----그 다음엔!!-----
+
+
 로컬 돌리는 cmd에서, 즉 myenv에서
 
 python manage.py makemigrations blog
@@ -8,7 +18,9 @@ python manage.py migrate blog
 
 해줘야된다.
 
+----이거까지 다 했으면!!----
 
+서버에도 올려줘야된다. 그거는 10월 10일에 이것때매 6시간 날렸으니까 주의하기.txt파일 참조.
 
 
 파이썬 로깅은 그냥 print로 해서 cmd에서 확인한다

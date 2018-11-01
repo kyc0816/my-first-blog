@@ -8,4 +8,17 @@ ifneutralized
 
 ifvaccinatedrabies
 
+registrationnumber
+
+
+
+----º¸È£ÀÚ----
+
+name
+
+contact1
+
+contact2
+
+address
 

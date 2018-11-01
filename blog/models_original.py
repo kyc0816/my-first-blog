@@ -4,7 +4,7 @@ from django.db import models
 from django.utils import timezone
 
 
-class Post(models.Model):
+class Post_original(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     title = models.CharField(max_length=20, default='Name of your pet')    #default='반려 동물 이름을 입력해주세요')
     text = models.TextField()

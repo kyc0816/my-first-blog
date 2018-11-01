@@ -12,7 +12,9 @@ class Post(models.Model):
     birthdate = models.CharField(max_length=20, default='출생 연도를 입력해주세요')
     ifneutralized = models.CharField(max_length=20, default='중성화 여부를 입력해주세요(함/안함)')
     ifvaccinatedrabies = models.CharField(max_length=30, default='광견병 백신 접종 여부를 입력해주세요(접종함/안함)')
+    registrationnumber = models.CharField(max_length=100, default='반려동물 등록번호를 입력해주세요\n(없으시면 없음이라고 입력해주세요)')
 
+    ownername = models.CharField(max_length=20, default='이름을 입력해주세요')
     contact1 = models.CharField(max_length=30, default='비상연락망을 입력해주세요')
     contact2 = models.CharField(max_length=50, default='추가 비상연락망을 입력해주세요\n(없으시면 없음이라고 입력해주세요)')
     address = models.CharField(max_length=100, default='주소를 입력해주세요\n(없으시면 없음이라고 입력해주세요)')
