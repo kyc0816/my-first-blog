@@ -113,6 +113,7 @@ h1, h2, h3, h4 {
 }
 
 /* 이 아래가 비밀번호 부분임 */
-.pw-form input{
+.pw-form input{\
+    margin-left: 120px
     width: 40%;
 }
