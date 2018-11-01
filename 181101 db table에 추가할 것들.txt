@@ -1,4 +1,4 @@
-181101 db table에 추가할 것들
+181101 db table에 추가한 것들
 
 breed
 
@@ -9,6 +9,8 @@ ifneutralized
 ifvaccinatedrabies
 
 registrationnumber
+
+healthwarnings
 
 
 

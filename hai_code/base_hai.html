@@ -1,0 +1,54 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<html>
+    <head>
+        <title>Carrot &amp; Bean Pet Information Service</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+<!--         <link rel="stylesheet" href="{% static 'css/blog_hai.css' %}"> -->
+    </head>
+    <body>
+        <div class="page-header">
+            <h1><a href="/">Carrot &amp; Bean 반려 동물 정보 시스템</a></h1>
+        </div>
+        <div class="content container">
+            <div class="row">
+                <div class="post">
+                    <div class="petinfo">
+                        <h1>펫 정보</h1>
+                        <table class="petinfotable">
+                          <tbody>
+                            <tr><td><p class="listTitleType">이름 :&nbsp;&nbsp;&nbsp;&nbsp;</p></td><td><p class="listTitle">콩딱이</p></td></tr>
+                            <tr><td><p class="listTitleType">종 :&nbsp;&nbsp;&nbsp;&nbsp;</p></td><td><p class="listTitle">시츄</p></td></tr>
+                            <tr><td><p class="listTitleType">생년월일 :&nbsp;&nbsp;&nbsp;&nbsp;</p></td><td><p class="listTitle">2008</p></td></tr>
+                            <tr><td><p class="listTitleType">중성화여부 :&nbsp;&nbsp;&nbsp;&nbsp;</p></td><td><p class="listTitle">했음</p></td></tr>
+                            <tr><td><p class="listTitleType">광견병접종여부 :&nbsp;&nbsp;&nbsp;&nbsp;</p></td><td><p class="listTitle">했음</p></td></tr>
+                            <tr><td><p class="listTitleType">반려동물등록번호 :&nbsp;&nbsp;&nbsp;&nbsp;</p></td><td><p class="listTitle">13-23</p></td></tr>
+                            <tr><td><p class="listTitleType">특이사항 :&nbsp;&nbsp;&nbsp;&nbsp;</p></td><td><p class="listTitle">귀여움</p></td></tr>
+                          </tbody>
+                        </table>  
+                    </div>
+                    <div class="ownerinfo">
+                        <h1>주인 정보</h1>
+                        <table class="ownerinfotable">
+                          <tbody>
+                            <tr><td><p class="listTitleType">이름 :&nbsp;&nbsp;&nbsp;&nbsp;</p></td><td><p class="listTitle">김당근</p></td></tr>
+                            <tr><td><p class="listTitleType">비상연락망 :&nbsp;&nbsp;&nbsp;&nbsp;</p></td><td><p class="listTitle">112</p></td></tr>
+                            <tr><td><p class="listTitleType">비상연락망2 :&nbsp;&nbsp;&nbsp;&nbsp;</p></td><td><p class="listTitle">119</p></td></tr>
+                            <tr><td><p class="listTitleType">주소 :&nbsp;&nbsp;&nbsp;&nbsp;</p></td><td><p class="listTitle">서울시경기도울릉도</p></td></tr>
+                          </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                    <form method="POST" class="pw-form">
+                        <input type="password" maxlength="4" name="password" required placeholder="수정하려면 4자리 비밀번호를 입력해주세요" />
+                        <!-- <button type="submit" class="save btn btn-default">ㅅ</button> -->
+                        <button type="submit" class="btn btn-default">수정하기&nbsp;&nbsp;<span class="glyphicon glyphicon-pencil"></span></button>
+                    </form>
+            </div>
+        </div>
+    </body>
+</html>

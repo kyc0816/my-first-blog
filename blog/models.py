@@ -7,7 +7,8 @@ from django.utils import timezone
 class Post(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     title = models.CharField(max_length=20, default='반려 동물 이름을 입력해주세요')
-    text = models.TextField(default='특이 사항이나 주의 사항을 입력해주세요')
+    text = models.TextField(default='특이 사항을 입력해주세요')
+    healthwarnings = models.TextField(default='건강상의 주의 사항을 입력해주세요')
     breed = models.CharField(max_length=20, default='종을 입력해주세요')
     birthdate = models.CharField(max_length=20, default='출생 연도를 입력해주세요')
     ifneutralized = models.CharField(max_length=20, default='중성화 여부를 입력해주세요(함/안함)')
