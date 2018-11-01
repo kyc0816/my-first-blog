@@ -47,11 +47,31 @@ h1, h2, h3, h4 {
     color: #000000;
 }
 
+/*.petinfo {        //효과가 없다. 왜일까?
+    width: 100%;
+}
+
+.petinfotable {
+    width: 50%;
+    margin : 0 auto;
+}
+
+.ownerinfo {
+    width: 100%;
+}
+
+.ownerinfoinfotable {
+    width: 50%;
+    margin : 0 auto;
+}*/
+
 .listTitle {
 	font-family: 'Lobster', 'meiryo', 'Nanum Gothic', sans-serif;
 	margin-bottom: 40px;
 	margin-top: 30px;
     display: inline-block;
+/*    margin-left: 50px;        //효과가 없다. 왜일까?
+    padding-left: 50px;*/
 }
 
 .listTitleType {

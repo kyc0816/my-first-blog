@@ -1,0 +1,11 @@
+181101 db table에 추가할 것들
+
+breed
+
+birthdate
+
+ifneutralized
+
+ifvaccinatedrabies
+
+

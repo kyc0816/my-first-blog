@@ -37,6 +37,10 @@ def post_new(request):
             post = form.save(commit=False)
             post.author = request.user
             post.published_date = timezone.now()
+            # post.breed                    //직접 입력하는게 아닌듯 하다
+            # post.birthdate
+            # post.ifneutralized
+            # post.ifvaccinatedrabies
             post.isFromDetailToEdit = '0'
             post.save()
             return redirect('post_detail', pk=post.pk)
