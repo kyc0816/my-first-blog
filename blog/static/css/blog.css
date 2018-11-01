@@ -61,7 +61,7 @@ h1, h2, h3, h4 {
 }
 
 .petinfo {        
-    margin-top: 100px;
+    margin-top: 60px;
 }
 
 /*.petinfotable {   //효과가 없다. 왜일까?
@@ -70,7 +70,7 @@ h1, h2, h3, h4 {
 }*/
 
 .ownerinfo {
-    margin-top: 100px;
+    margin-top: 60px;
 }
 
 /*.ownerinfoinfotable {
