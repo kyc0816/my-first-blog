@@ -70,13 +70,13 @@ h1, h2, h3, h4 {
 	margin-bottom: 40px;
 	margin-top: 30px;
     display: inline-block;
-    background-color: #ff0000; 
 /*    margin-left: 50px;        //효과가 없다. 왜일까?
     padding-left: 50px;*/
 }
 
 .listTitleType {
     display: inline-block;
+     background-color: #888888;
 }
 
 #editH1 {
