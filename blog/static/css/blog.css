@@ -1,7 +1,8 @@
 .page-header {
-    background-color: #ff9400;
+    background-color: #ffcc99;
     margin-top: 0;
     padding: 20px 20px 20px 40px;
+    text-align: center;
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
