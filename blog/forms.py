@@ -10,4 +10,4 @@ class PostForm(forms.ModelForm):
         model = Post
         # 아랫줄에서 password 지워야됨
         fields = ('title', 'breed', 'birthdate', 'ifneutralized', 'ifvaccinatedrabies', 'registrationnumber', 
-        	'ownername', 'text', 'contact1', 'contact2', 'address', 'password',)
+        	'text', 'ownername', 'contact1', 'contact2', 'address', 'password',)

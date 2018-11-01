@@ -1,4 +1,5 @@
-
+선요약 : 일단 git add--all   ///   git commit -m "어쩌고젖쩌고"   /// git push를 해줘야된다.
+	 그러고나서 파이썬애니웨어 bash에서 git pull 해준담에 python manage.py migrate 해주고 web에서 reload 해주면 됨.
 
 
 		models.py에서 password랑 isFromDetailToEdit 추가한게 로컬에선 되는데 웹에선 안됐다.
