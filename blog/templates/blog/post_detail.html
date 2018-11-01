@@ -9,8 +9,65 @@
             </div>
         {% endif %}
         {% endif %}
-        <h1 class="listTitle">{{ post.title }}</h1>
-        <p>{{ post.text|linebreaksbr }}</p>
+        <div class="petinfo">
+            <h1>펫 정보</h1>
+            <table>
+              <tbody>
+                <tr>
+                    <td>
+                      <p class="listTitleType">이름</p>
+                    </td>
+                    <td>
+                      <p class="listTitle">{{ post.title }}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                      <p class="listTitleType">종</p>
+                    </td>
+                    <td>
+                      <p class="listTitle">뽀메라리안</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                      <p class="listTitleType">생년월일</p>
+                    </td>
+                    <td>
+                      <p class="listTitle">2008년</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                      <p class="listTitleType">중성화여부</p>
+                    </td>
+                    <td>
+                      <p class="listTitle">안함</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                      <p class="listTitleType">광견병접종여부</p>
+                    </td>
+                    <td>
+                      <p class="listTitle">접종함</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                      <p class="listTitleType">특이사항
+                    <td>
+                      <p class="listTitle">하루에 두 번 밥을 줘야 합니다</p>
+                    </td>
+                </tr>
+              </tbody>
+            </table>
+            
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+        <div class="ownerinfo">
+            <h1>주인 정보</h1>
+        </div>
     </div>
     <!-- 이 밑에 줄 주석임 -->
         <form method="POST" class="pw-form">{% csrf_token %}

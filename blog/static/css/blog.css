@@ -40,6 +40,7 @@ h1, h2, h3, h4 {
 .post {
     margin-bottom: 70px;
     margin-top: 30px;
+    width: 100%;
 }
 
 .post h1 a, .post h1 a:visited {
@@ -50,6 +51,11 @@ h1, h2, h3, h4 {
 	font-family: 'Lobster', 'meiryo', 'Nanum Gothic', sans-serif;
 	margin-bottom: 40px;
 	margin-top: 30px;
+    display: inline-block;
+}
+
+.listTitleType {
+    display: inline-block;
 }
 
 #editH1 {

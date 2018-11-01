@@ -1,0 +1,30 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="post">
+        {% if post.published_date %}
+        {% if user.is_authenticated %}
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+        {% endif %}
+        {% endif %}
+        <h1 class="listTitle">{{ post.title }}</h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+    <!-- 이 밑에 줄 주석임 -->
+        <form method="POST" class="pw-form">{% csrf_token %}
+        	<input type="password" maxlength="4" name="password" required placeholder="수정하려면 4자리 비밀번호를 입력해주세요" />
+        	<!-- <button type="submit" class="save btn btn-default">ㅅ</button> -->
+        	<button type="submit" class="btn btn-default">수정하기&nbsp;&nbsp;<span class="glyphicon glyphicon-pencil"></span></button>
+        </form>
+        <!-- 이 위에까지 주석이고 밑에는 원래 있는건데 잠시 주석 처리 해놨다 -->
+        	<!-- <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}">수정하기&nbsp;&nbsp;<span class="glyphicon glyphicon-pencil"></span></a> -->
+        {% if messages %}
+        <ul class="messages">
+        	{% for message in messages %}
+        	<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        	{% endfor %}
+    	</ul>
+		{% endif %}
+{% endblock %}
