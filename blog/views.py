@@ -39,7 +39,7 @@ def post_new(request):
             post = form.save(commit=False)
             post.author = request.user
             post.published_date = timezone.now()
-            # post.breed                    //직접 입력하는게 아닌듯 하다
+            # post.breed                    //직접 입력하는게 아님
             # post.birthdate
             # post.ifneutralized
             # post.ifvaccinatedrabies
@@ -58,8 +58,8 @@ def post_edit(request, pk):
         if form.is_valid():
             post = form.save(commit=False)
             # post.author = request.user		user이 justin, 즉 admin이어야만 들어올 수 있어서 일단 들어온 담에 글을 쓰면 자동으로 justin으로 됐는데
-            								   #이제는 admin 아니어도 쓸 수 있게 됐는데 used를 따로 구현을 안했기에 이거를 그냥 비워둬야한다.
-            								   #애초에 글을 admin이 처음에 써놓고 사용자는 수정만 하게 해놔서 author는 전부 justin으로 남는다.
+            # 								   이제는 admin 아니어도 쓸 수 있게 됐는데 user를 따로 구현을 안했기에 이거를 그냥 비워둬야한다.
+            # 								   애초에 글을 admin이 처음에 써놓고 사용자는 수정만 하게 해놔서 author는 전부 justin으로 남는다.
             post.published_date = timezone.now()
             post.save()
             return redirect('post_detail', pk=post.pk)
