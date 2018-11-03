@@ -8,7 +8,7 @@ class Post(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     title = models.CharField(max_length=20, default='반려 동물 이름을 입력해주세요')
     text = models.TextField(default='반려 동물의 특이 사항을 입력해주세요\n예) 입 주변을 만지면 물 수 있으니 조심해주세요 등')
-    healthwarnings = models.TextField(default='반려 동물의 건강상의 주의 사항을 입력해주세요\n예) 쿠싱 증후군입니다. 수술 마취시 주의해야합니다 등\n건강상의 주의 사항은 반려동물의 실종 당시(보호자 부재시) 생길 수 있는 사고, 질병 상황을 대비하여 의료진 및 임시 보호자에게 알리기 위함입니다.')
+    healthwarnings = models.TextField(default='반려 동물의 건강상의 주의 사항을 입력해주세요\n예) 쿠싱 증후군입니다. 수술 마취시 주의해야합니다 등\n건강상의 주의 사항은 반려동물의 실종 당시(보호자 부재시) 생길 수 있는\n사고, 질병 상황을 대비하여 의료진 및 임시 보호자에게 알리기 위함입니다.')
     breed = models.CharField(max_length=20, default='종을 입력해주세요')
     birthdate = models.CharField(max_length=20, default='yyyy-mm-dd')
     ifneutralized = models.CharField(max_length=20, default='중성화 여부를 입력해주세요')

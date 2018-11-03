@@ -92,7 +92,8 @@ h1, h2, h3, h4 {
 .listTitle {
     font-family: 'Lobster', 'meiryo', 'Jua', sans-serif;
     font-size: 20pt;
-    margin-left: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     display: inline-block;
 /*    margin-left: 50px;        //효과가 없다. 왜일까?
     padding-left: 50px;*/
@@ -101,6 +102,8 @@ h1, h2, h3, h4 {
 .listTitleDetails {
     font-family: 'Lobster', 'meiryo', 'Jua', sans-serif;
     font-size: 15pt;
+    margin-top: 20px;
+    margin-bottom: 20px;
     display: inline-block;
 /*    margin-left: 50px;        //효과가 없다. 왜일까?
     padding-left: 50px;*/
