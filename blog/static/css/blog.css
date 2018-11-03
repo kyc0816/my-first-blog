@@ -64,19 +64,17 @@ h1, h2, h3, h4 {
     margin-top: 60px;
 }
 
-/*.petinfotable {   //효과가 없다. 왜일까?
-    width: 50%;
-    margin : 0 auto;
-}*/
+.petinfotable {   
+    width: 100%;
+}
 
 .ownerinfo {
     margin-top: 60px;
 }
 
-/*.ownerinfoinfotable {
-    width: 50%;
-    margin : 0 auto;
-}*/
+.ownerinfoinfotable {
+    width: 100%;
+}
 
 .listTitleType {
     font-family: 'Lobster', 'meiryo', 'Jua', cursive;
