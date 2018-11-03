@@ -24,7 +24,7 @@
 
 .content {
     font-family: 'Lobster', 'meiryo', 'Jua', cursive;
-    margin-left: 120px;
+    margin-left: 80px;
 }
 
 h1, h2, h3, h4 {
@@ -83,7 +83,7 @@ h1, h2, h3, h4 {
     font-size: 20pt;
     margin-top: 20px;
     margin-bottom: 20px;
-    width: 300px;
+    width: 280px;
     display: inline-block;
 /*    background-color: #888888;*/
 }
@@ -97,6 +97,16 @@ h1, h2, h3, h4 {
     display: inline-block;
 /*    margin-left: 50px;        //효과가 없다. 왜일까?
     padding-left: 50px;*/
+}
+
+.listTitleDetailsType {
+    font-family: 'Lobster', 'meiryo', 'Jua', cursive;
+    font-size: 20pt;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 280px;
+    text-align: top;
+    display: inline-block;
 }
 
 .listTitleDetails {

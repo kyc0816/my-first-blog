@@ -39,5 +39,14 @@
 		"migrations가 파이썬애니웨어의 files의 my-first-blog에 올라간 것이다."!!!
 		
 		이미 위의 글들을 통해 유추 가능한 사실이긴 하지만 직접 tree를 통해 알아보았다.
+
+
+///////////////////// models.py를 (특히 default 값을) 바꾸고 싶을 때//////////////
+
+models.py에 손을 대고 migration을 할 때 기존에 존재했던 글들의 값은 바뀌지 않음을 알 수 있다.
+그러면 밀어버리면 된다. models.py, forms.py, post_detail.html에 존재하는, 해당 model들이 포함된 모든 내용을
+주석 처리해버린담에 migration 해버린다. 그러면 ...(기존 방식대로 migration 하고 나면) 싹 없어져있다.
+그러고나서 주석 푼다음에 내가 원하는 default 값을 넣거나 암튼 내가 원하는 모양으로 models.py를 바꾼담에
+다시 migration 해주면 한 번에 전체 글들의 default 값들을 다 바꿀 수 있다.
 		
 
