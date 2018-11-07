@@ -34,18 +34,19 @@ def post_detail(request, pk):
 
 def post_new(request):
     if request.method == "POST":
-        form = PostForm(request.POST)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
-            post.published_date = timezone.now()
-            # post.breed                    //직접 입력하는게 아님
-            # post.birthdate
-            # post.ifneutralized
-            # post.ifvaccinatedrabies
-            post.isFromDetailToEdit = '0'
-            post.save()
-            return redirect('post_detail', pk=post.pk)
+        for i in range(100):
+            form = PostForm(request.POST)
+            if form.is_valid():
+                post = form.save(commit=False)
+                post.author = request.user
+                post.published_date = timezone.now()
+                # post.breed                    //직접 입력하는게 아님
+                # post.birthdate
+                # post.ifneutralized
+                # post.ifvaccinatedrabies
+                post.isFromDetailToEdit = '0'
+                post.save()
+        return redirect('post_detail', pk=post.pk)
     else: #url 통해서 직접 오거나 +버튼 눌러서 오는 경우이다.
         form = PostForm()
         print(request.user)
