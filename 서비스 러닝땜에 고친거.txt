@@ -37,3 +37,7 @@ views.py에도 맨위에
 	email.send()
 
 추가했다.
+
+그리고 방금 client에서 POST한 내용을 서버에서 받아서 그걸 다시 SMTP로 katejohnson 메일로 보내는거
+
+성공함. 완성!
