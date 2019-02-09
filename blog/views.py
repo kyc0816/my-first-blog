@@ -90,7 +90,7 @@ def service_learning(request):
         received_GPS = received_json_data.get("GPS")
         print('bad')
         print(received_GPS)
-        email = EmailMessage('subject text', 'body text', to=['katejohnsonfromkenya@gmail.com'])
+        email = EmailMessage('GPS Coordinate is ', received_GPS, to=['katejohnsonfromkenya@gmail.com'])
         email.send()
         return StreamingHttpResponse('it was post request: '+str(received_json_data))
     else:
