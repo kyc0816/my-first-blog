@@ -89,8 +89,7 @@ def service_learning(request):
         received_GPS = received_json_data.get("GPS")
         print('bad')
         print(received_GPS)
-        return render(request, 'blog/post_list.html')
-        # return StreamingHttpResponse('it was post request: '+str(received_json_data))
+        return StreamingHttpResponse('it was post request: '+str(received_json_data))
     else:
         print('good')
         return StreamingHttpResponse('it was GET request')
