@@ -85,10 +85,10 @@ def post_edit(request, pk):
 @csrf_exempt
 def service_learning(request):
     if request.method == "POST":
-        # received_json_data = request.body.decode('utf-8')
-        data = request.body.decode('utf-8')
-        received_json_data = json.loads(data)
-        received_GPS = received_json_data.get("GPS")
+        received_json_data = request.body.decode('utf-8')
+        # data = request.body.decode('utf-8')
+        # received_json_data = json.loads(data)
+        # received_GPS = received_json_data.get("GPS")
         # print('bad')
         # print(received_GPS)
         email = EmailMessage('GPS Coordinate is ', received_GPS, to=['katejohnsonfromkenya@gmail.com'])
