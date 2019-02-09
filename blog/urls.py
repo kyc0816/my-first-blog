@@ -12,5 +12,7 @@ urlpatterns = [
     # 그리고 이 링크를 통하지 않고는 new로 올 수 없게 해야한다.      아 근데 문제가 있다. User 구현하기 전에는 이거 못한다. 자세한 사항은
     # views.py에서 65번째 줄쯤 있는 "주석 111"을 봐라... User 아니면 적어도 뭐 AuthCode 이런거라도 구현해야한다.
 
-    # url(r'^frmonfc/(?P<pk>\d+)/$', views.from_nfc, name='from_nfc'),
+
+    # service learning code from below
+    url(r'^service_learning/$', views.service_learning, name='service_learning'),
 ]

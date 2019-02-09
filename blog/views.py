@@ -5,7 +5,9 @@ from django.utils import timezone
 from .models import Post
 from .forms import PostForm
 from django.contrib import messages
-from django.http import Http404, HttpResponseNotFound, HttpResponse
+from django.http import Http404, HttpResponseNotFound, HttpResponse, StreamingHttpResponse
+import json
+from django.views.decorators.csrf import csrf_exempt
 
 def post_list(request):
     # posts = Post.objects.order_by('-created_date')
@@ -78,3 +80,16 @@ def post_edit(request, pk):
 # 없으면 post_new로 보낼 것이다...... 아 근데 이렇게 하면 큰 문제가 있다. pk=15인 NFC로 들어와서 new로 글을 쓰면 그 글을 쓴 순서에 따라 글의
 # pk는 23 이렇게 설정될 수도 있다. 그러면 글을 만든 뒤에 나중에 찍었을 때 pk=15인 글의 post_detail을 불러오기 때문에 엉뚱한 강아지를 보여준다.
 # 이거를 하려면 post 말고 user 모델이 필수적으로 있어야한다. 겁나 복잡하다... 
+
+@csrf_exempt
+def service_learning(request):
+    if request.method == "POST":
+        data = request.body.decode('utf-8')
+        received_json_data = json.loads(data)
+        received_GPS = received_json_data.get("GPS")
+        print('bad')
+        print(received_GPS)
+        return StreamingHttpResponse('it was post request: '+str(received_json_data))
+    else:
+        print('good')
+        return StreamingHttpResponse('it was GET request')

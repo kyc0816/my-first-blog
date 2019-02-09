@@ -1,0 +1,18 @@
+urls.py에서 서비스 러닝으로 가는 정규식 추가했고
+
+views.py에도 맨 밑에 def service_learning 추가했음
+
+import도 몇 개 했는데 대표적으로 StreamingHttpResponse이랑 json 추가함.
+
+그리고 클라이언트 파일 하나 만들어서 (djangojsontest_client.py)
+
+POST 요청 보냈더니 cmd에서 csrf 토큰 어쩌고 하길래 스택 찾아봐서
+
+	from django.views.decorators.csrf import csrf_exempt
+
+	@csrf_exempt (요거는 def service_learning 위에 붙여줌)
+
+라는 것도 추가했음.
+
+https://stackoverflow.com/questions/6800894/django-returns-403-error-when-sending-a-post-request
+https://docs.djangoproject.com/en/dev/ref/csrf/#how-to-use-it
