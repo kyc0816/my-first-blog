@@ -8,6 +8,7 @@ from django.contrib import messages
 from django.http import Http404, HttpResponseNotFound, HttpResponse, StreamingHttpResponse
 import json
 from django.views.decorators.csrf import csrf_exempt
+from django.core.mail import EmailMessage
 
 def post_list(request):
     # posts = Post.objects.order_by('-created_date')
@@ -89,6 +90,8 @@ def service_learning(request):
         received_GPS = received_json_data.get("GPS")
         print('bad')
         print(received_GPS)
+        email = EmailMessage('subject text', 'body text', to=['katejohnsonfromkenya@gmail.com'])
+        email.send()
         return StreamingHttpResponse('it was post request: '+str(received_json_data))
     else:
         print('good')
