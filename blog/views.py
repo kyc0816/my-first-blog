@@ -87,12 +87,12 @@ def service_learning(request):
     if request.method == "POST":
 
         # **** dataType = string
-        received_GPS = request.body.decode('utf-8')
+        # received_GPS = request.body.decode('utf-8')
 
         # **** dataType = JSON
-        # data = request.body.decode('utf-8')
-        # received_json_data = json.loads(data)
-        # received_GPS = received_json_data.get("GPS")
+        data = request.body.decode('utf-8')
+        received_json_data = json.loads(data)
+        received_GPS = received_json_data.get("GPS")
 
         # **debug
         # print('bad')
