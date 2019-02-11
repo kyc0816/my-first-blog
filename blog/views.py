@@ -87,23 +87,24 @@ def service_learning(request):
     if request.method == "POST":
 
         # **** dataType = string
-        # received_GPS = request.body.decode('utf-8')
+        received_string = request.body.decode('utf-8')
+        email = EmailMessage('Data is ', received_string, to=['jinrudals135@gmail.com'])
 
         # **** dataType = JSON
         data = request.body.decode('utf-8')
-        received_json_data = json.loads(data)
-        # received_GPS = received_json_data.get("GPS")
-        received_ID = received_json_data.get("ID")
-        received_button1 = received_json_data.get("button1")
-        received_button2 = received_json_data.get("button2")
-        received_latitude = received_json_data.get("latitude")
-        received_longitude = received_json_data.get("longitude")
+        # received_json_data = json.loads(data)
+        # # received_GPS = received_json_data.get("GPS")
+        # received_ID = received_json_data.get("ID")
+        # received_button1 = received_json_data.get("button1")
+        # received_button2 = received_json_data.get("button2")
+        # received_latitude = received_json_data.get("latitude")
+        # received_longitude = received_json_data.get("longitude")
+        # email = EmailMessage('Data is ', received_ID+received_button1+received_button2+received_latitude+received_lonigutde, to=['jinrudals135@gmail.com'])
 
         # **debug
         # print('bad')
         # print(received_GPS)
-
-        email = EmailMessage('Data is ', received_ID+received_button1+received_button2+received_latitude+received_lonigutde, to=['jinrudals135@gmail.com'])
+        
         email.send()
 
         # **** response = StreamingHttpResponse
