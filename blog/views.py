@@ -92,13 +92,18 @@ def service_learning(request):
         # **** dataType = JSON
         data = request.body.decode('utf-8')
         received_json_data = json.loads(data)
-        received_GPS = received_json_data.get("GPS")
+        # received_GPS = received_json_data.get("GPS")
+        received_ID = received_json_data.get("ID")
+        received_button1 = received_json_data.get("button1")
+        received_button2 = received_json_data.get("button2")
+        received_latitude = received_json_data.get("latitude")
+        received_longitude = received_json_data.get("longitude")
 
         # **debug
         # print('bad')
         # print(received_GPS)
 
-        email = EmailMessage('GPS Coordinate is ', received_GPS, to=['jinrudals135@gmail.com'])
+        email = EmailMessage('Data is ', received_ID+received_button1+received_button2+received_latitude+received_lonigutde, to=['jinrudals135@gmail.com'])
         email.send()
 
         # **** response = StreamingHttpResponse
