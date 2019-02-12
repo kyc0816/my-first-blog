@@ -100,8 +100,10 @@ def service_learning(request):
         received_lon = received_string[9:]
 
         # email body in common
-        email_body = emer_kid_school + emer_kid_name + ' 학생이 학교 폭력 신고 장치를 통해 도움을 요청하였습니다.\n\n아래 링크를 통해 신고 위치를 확인하십시오.\n\n\n\n'
-        + 'https://www.google.com/maps/search/?api=1&query=' + received_lat + ',' + received_lon + '\n\n\n'
+        # email_body = emer_kid_school + emer_kid_name + ' 학생이 학교 폭력 신고 장치를 통해 도움을 요청하였습니다.\n\n아래 링크를 통해 신고 위치를 확인하십시오.\n\n\n\n'
+        # + 'https://www.google.com/maps/search/?api=1&query=' + received_lat + ',' + received_lon + '\n\n\n'
+
+        email_body = 'hello'
 
         # e-mail to parents
         email_parents = EmailMessage('귀하의 자녀 ' + emer_kid_name + '(으)로부터 도움 요청', email_body, to=[emer_kid_parent_email])
