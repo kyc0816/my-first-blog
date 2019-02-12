@@ -88,13 +88,13 @@ def service_learning(request):
 
         # **** dataType = string && REAL CODE
         received_string = request.body.decode('utf-8')      # received_string be like --> ID + Button + Lat(32.2576) + Lon(136.2345)
-        if received_string[0]=='1':                         # Min-Su's ID is 1
-            emer_kid_name = '김민수'
-            emer_kid_parent_email = 'jinrudals135@gmail.com'
-            emer_kid_age = '15'
-            emer_kid_school = '서울중학교'
-            emer_kid_class = '2학년 3반'
-            emer_kid_past_bullied_record = '있음'
+        # if received_string[0]=='1':                         # Min-Su's ID is 1
+        emer_kid_name = '김민수'
+        emer_kid_parent_email = 'jinrudals135@gmail.com'
+        emer_kid_age = '15'
+        emer_kid_school = '서울중학교'
+        emer_kid_class = '2학년 3반'
+        emer_kid_past_bullied_record = '있음'
         # GPS lat&lon extraction
         received_lat = received_string[2:9]
         received_lon = received_string[9:]
