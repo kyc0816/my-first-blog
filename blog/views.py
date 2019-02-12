@@ -87,8 +87,40 @@ def service_learning(request):
     if request.method == "POST":
 
         # **** dataType = string
-        received_string = request.body.decode('utf-8')
-        email = EmailMessage('Data is ', received_string, to=['jinrudals135@gmail.com'])
+        received_string = request.body.decode('utf-8')      # received_string be like --> ID + Button + Lat(32.2576) + Lon(136.2345)
+        if received_string[0]=='1':                         # Min-Su's ID is 1
+            emer_kid_name = '김민수'
+            emer_kid_parent_email = 'jinrudals135@gmail.com'
+            emer_kid_age = '15'
+            emer_kid_school = '서울중학교'
+            emer_kid_class = '2학년 3반'
+            emer_kid_past_bullied_record = '있음'
+        # GPS lat&lon extraction
+        received_lat = received_string[2]+received_string[3]+received_string[4]+received_string[5]+received_string[6]+received_string[7]+received_string[8]
+        received_lon = received_string[9]+received_string[10]+received_string[11]+received_string[12]+received_string[13]+received_string[14]+received_string[15]+received_string[16]
+
+        # email body in common
+        email_body = emer_kid_school + emer_kid_name + ' 학생이 학교 폭력 신고 장치를 통해 도움을 요청하였습니다.\n\n아래 링크를 통해 신고 위치를 확인하십시오.\n\n\n\n'
+        + 'https://www.google.com/maps/search/?api=1&query=' + received_lat + ',' + received_lon + '\n\n\n'
+
+        # e-mail to parents
+        email_parents = EmailMessage('귀하의 자녀 ' + emer_kid_name + '(으)로부터 도움 요청', email_body, to=[emer_kid_parent_email])
+        email_parents.send()
+
+        # e-mail to police
+        if received_string[1]=='1':
+            # to Police --> add kid information to common email body.
+            emer_kid_info = '학생 정보 :\n\n'
+            + '이름 : ' + emer_kid_name + '\n'
+            + '나이 : ' + emer_kid_age + '\n'
+            + '학교 : ' + emer_kid_school + '\n'
+            + '학급 : ' + emer_kid_class + '\n'
+            + '학교 폭력 피해 전력 : ' + emer_kid_past_bullied_record
+
+            email_police = EmailMessage('학교 폭력 신고가 발생하였습니다.', email_body + emer_kid_info, to=['katejohnsonfromkenya@gmail.com'])
+            email_police.send()
+
+
 
         # **** dataType = JSON
         data = request.body.decode('utf-8')
@@ -100,12 +132,15 @@ def service_learning(request):
         # received_latitude = received_json_data.get("latitude")
         # received_longitude = received_json_data.get("longitude")
         # email = EmailMessage('Data is ', received_ID+received_button1+received_button2+received_latitude+received_lonigutde, to=['jinrudals135@gmail.com'])
+        # email.send()
+
+
 
         # **debug
         # print('bad')
         # print(received_GPS)
+
         
-        email.send()
 
         # **** response = StreamingHttpResponse
         # return StreamingHttpResponse('it was post request: '+str(received_json_data))
