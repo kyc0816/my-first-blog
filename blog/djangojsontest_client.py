@@ -13,7 +13,7 @@ url = "http://kyc0816.pythonanywhere.com/service_learning/"
 # r=requests.post(url, data=json.dumps(data), headers=headers)
 
 # **** dataType = string
-data = 'hi'
+data = '1138.1111127.1111'
 r=requests.post(url, data=data)
 
 r.text
