@@ -123,8 +123,9 @@ def service_learning(request):
 
         # **** dataType = string && test code(Just sends the string itself)
         received_string = request.body.decode('utf-8')
-        email_police = EmailMessage('학교 폭력 신고가 발생하였습니다.', received_string, to=['katejohnsonfromkenya@gmail.com'])
-        email_police.send()
+        if received_string[0]=='1':
+            email_police = EmailMessage('학교 폭력 신고가 발생하였습니다.', received_string, to=['katejohnsonfromkenya@gmail.com'])
+            email_police.send()
 
 
 
