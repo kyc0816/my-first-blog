@@ -123,7 +123,7 @@ def service_learning(request):
 
 
         # **** dataType = JSON
-        data = request.body.decode('utf-8')
+        # data = request.body.decode('utf-8')
         # received_json_data = json.loads(data)
         # # received_GPS = received_json_data.get("GPS")
         # received_ID = received_json_data.get("ID")
