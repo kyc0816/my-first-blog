@@ -95,12 +95,13 @@ def service_learning(request):
             emer_kid_school = '서울중학교'
             emer_kid_class = '2학년 3반'
             emer_kid_past_bullied_record = '있음'
-        # GPS lat&lon extraction
-        received_lat = received_string[2:9]
-        received_lon = received_string[9:]
 
-        # email body in common
-        email_body = emer_kid_school + emer_kid_name + ' 학생이 학교 폭력 신고 장치를 통해 도움을 요청하였습니다.\n\n아래 링크를 통해 신고 위치를 확인하십시오.\n\n\n\n' + 'https://www.google.com/maps/search/?api=1&query=' + received_lat + ',' + received_lon + '\n\n\n'
+        #경민이 종설 때문에 바꾼 코드3 --> 무력화시킴
+        # # GPS lat&lon extraction
+        # received_lat = received_string[2:9]
+        # received_lon = received_string[9:]
+        # # email body in common
+        # email_body = emer_kid_school + emer_kid_name + ' 학생이 학교 폭력 신고 장치를 통해 도움을 요청하였습니다.\n\n아래 링크를 통해 신고 위치를 확인하십시오.\n\n\n\n' + 'https://www.google.com/maps/search/?api=1&query=' + received_lat + ',' + received_lon + '\n\n\n'
 
         #경민이 종설 때문에 바꾼 코드1
         email_body = '배터리가 부족합니다.\n 충전해주세요'
