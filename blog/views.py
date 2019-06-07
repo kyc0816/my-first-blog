@@ -102,8 +102,15 @@ def service_learning(request):
         # email body in common
         email_body = emer_kid_school + emer_kid_name + ' 학생이 학교 폭력 신고 장치를 통해 도움을 요청하였습니다.\n\n아래 링크를 통해 신고 위치를 확인하십시오.\n\n\n\n' + 'https://www.google.com/maps/search/?api=1&query=' + received_lat + ',' + received_lon + '\n\n\n'
 
+        #경민이 종설 때문에 바꾼 코드1
+        email_body = '배터리가 부족합니다.\n 충전해주세요'
+
         # e-mail to parents
         email_parents = EmailMessage('귀하의 자녀 ' + emer_kid_name + '(으)로부터 도움 요청', email_body, to=[emer_kid_parent_email])
+
+        #경민이 종설 때문에 바꾼 코드2
+        email_parents = EmailMessage('충전 요청', email_body, to=[emer_kid_parent_email])
+
         email_parents.send()
 
         # e-mail to police
@@ -112,7 +119,9 @@ def service_learning(request):
             emer_kid_info = '학생 정보 :\n\n' + '이름 : ' + emer_kid_name + '\n' + '나이 : ' + emer_kid_age + '\n' + '학교 : ' + emer_kid_school + '\n' + '학급 : ' + emer_kid_class + '\n' + '학교 폭력 피해 전력 : ' + emer_kid_past_bullied_record
 
             email_police = EmailMessage('학교 폭력 신고가 발생하였습니다.', email_body + emer_kid_info, to=['katejohnsonfromkenya@gmail.com'])
-            email_police.send()
+            
+            #경민이 종설 때문에 바꾼 코드3 --> 무력화시킴
+            # email_police.send()
 
 
         # # **** dataType = string && test code(Just sends the string itself)
