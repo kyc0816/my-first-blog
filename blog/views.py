@@ -84,104 +84,107 @@ def post_edit(request, pk):
 
 @csrf_exempt
 def service_learning(request):
-    if request.method == "POST":
-
-        # **** dataType = string && REAL CODE
-        received_string = request.body.decode('utf-8')      # received_string be like --> ID + Button + Lat(32.2576) + Lon(136.2345)
-
-
-        #2020-10-20 내 종설 때문에 다시 바꾼 코드 (여기까지 오긴 오나해서 써놨다.. 뭐가 문젠지 보려고. 임시로 여기 있는 애다.)
-        EmailMessage('충전 요청', 'hi', to=['youngcheol33@gmail.com']).send() # --> 실행 안되는걸로 판명..
-
-        if received_string[0]=='1':                         # Min-Su's ID is 1
-        #2020-10-20 내 종설 때문에 다시 바꾼 코드
-            emer_kid_parent_email = 'youngcheol33@gmail.com'
-
-        #경민이 종설 때문에 바꾼 코드 --> 무력화시킴
-            # emer_kid_name = '김민수'
-            # emer_kid_parent_email = 'jinrudals135@gmail.com'
-            # emer_kid_age = '15'
-            # emer_kid_school = '서울중학교'
-            # emer_kid_class = '2학년 3반'
-            # emer_kid_past_bullied_record = '있음'
-
-        #경민이 종설 때문에 바꾼 코드 --> 무력화시킴
-        # # GPS lat&lon extraction
-        # received_lat = received_string[2:9]
-        # received_lon = received_string[9:]
-        # # email body in common
-        # email_body = emer_kid_school + emer_kid_name + ' 학생이 학교 폭력 신고 장치를 통해 도움을 요청하였습니다.\n\n아래 링크를 통해 신고 위치를 확인하십시오.\n\n\n\n' + 'https://www.google.com/maps/search/?api=1&query=' + received_lat + ',' + received_lon + '\n\n\n'
-
-        #경민이 종설 때문에 바꾼 코드
-        email_body = '배터리가 부족합니다.\n 충전해주세요'
-
-        #경민이 종설 때문에 바꾼 코드 --> 무력화시킴
-        # e-mail to parents
-        # email_parents = EmailMessage('귀하의 자녀 ' + emer_kid_name + '(으)로부터 도움 요청', email_body, to=[emer_kid_parent_email])
-
-        #경민이 종설 때문에 바꾼 코드
-        # email_parents = EmailMessage('충전 요청', email_body, to=[emer_kid_parent_email])
-        #2020-10-20 내 종설 때문에 다시 바꾼 코드
-        email_parents = EmailMessage('충전 요청', email_body, to=[emer_kid_parent_email])
-
-        email_parents.send()
-
-        #경민이 종설 때문에 바꾼 코드 --> 무력화시킴
-        # e-mail to police
-        # if received_string[1]=='1':
-        #     # to Police --> add kid information to common email body.
-        #     emer_kid_info = '학생 정보 :\n\n' + '이름 : ' + emer_kid_name + '\n' + '나이 : ' + emer_kid_age + '\n' + '학교 : ' + emer_kid_school + '\n' + '학급 : ' + emer_kid_class + '\n' + '학교 폭력 피해 전력 : ' + emer_kid_past_bullied_record
-
-        #     email_police = EmailMessage('학교 폭력 신고가 발생하였습니다.', email_body + emer_kid_info, to=['katejohnsonfromkenya@gmail.com'])
-            # email_police.send()
-
-
-        # # **** dataType = string && test code(Just sends the string itself)
-        # received_string = request.body.decode('utf-8')
-        # if received_string[0]=='1':
-        #     email_police = EmailMessage('학교 폭력 신고가 발생하였습니다.', received_string, to=['katejohnsonfromkenya@gmail.com'])
-        #     email_police.send()
-
-
-
-
-
-
-        # **** dataType = JSON
-        # data = request.body.decode('utf-8')
-        # received_json_data = json.loads(data)
-        # # received_GPS = received_json_data.get("GPS")
-        # received_ID = received_json_data.get("ID")
-        # received_button1 = received_json_data.get("button1")
-        # received_button2 = received_json_data.get("button2")
-        # received_latitude = received_json_data.get("latitude")
-        # received_longitude = received_json_data.get("longitude")
-        # email = EmailMessage('Data is ', received_ID+received_button1+received_button2+received_latitude+received_lonigutde, to=['jinrudals135@gmail.com'])
-        # email.send()
-
-
-
-        # **debug
-        # print('bad')
-        # print(received_GPS)
-
-        
-
-        # **** response = StreamingHttpResponse
-        # return StreamingHttpResponse('it was post request: '+str(received_json_data))
-
-        # **** response = HttpResponse
-        return HttpResponse('it was post request')
-
-        
-
-
-    else:
-        # **debug
-        # print('good')
-
-        # **** response = StreamingHttpResponse
-        # return StreamingHttpResponse('it was GET request')
-
-        # **** response = HttpResponse
-        return HttpResponse('it was GET request')
+    try:
+        if request.method == "POST":
+    
+            # **** dataType = string && REAL CODE
+            received_string = request.body.decode('utf-8')      # received_string be like --> ID + Button + Lat(32.2576) + Lon(136.2345)
+    
+    
+            #2020-10-20 내 종설 때문에 다시 바꾼 코드 (여기까지 오긴 오나해서 써놨다.. 뭐가 문젠지 보려고. 임시로 여기 있는 애다.)
+            EmailMessage('충전 요청', 'hi', to=['youngcheol33@gmail.com']).send() # --> 실행 안되는걸로 판명..
+    
+            if received_string[0]=='1':                         # Min-Su's ID is 1
+            #2020-10-20 내 종설 때문에 다시 바꾼 코드
+                emer_kid_parent_email = 'youngcheol33@gmail.com'
+    
+            #경민이 종설 때문에 바꾼 코드 --> 무력화시킴
+                # emer_kid_name = '김민수'
+                # emer_kid_parent_email = 'jinrudals135@gmail.com'
+                # emer_kid_age = '15'
+                # emer_kid_school = '서울중학교'
+                # emer_kid_class = '2학년 3반'
+                # emer_kid_past_bullied_record = '있음'
+    
+            #경민이 종설 때문에 바꾼 코드 --> 무력화시킴
+            # # GPS lat&lon extraction
+            # received_lat = received_string[2:9]
+            # received_lon = received_string[9:]
+            # # email body in common
+            # email_body = emer_kid_school + emer_kid_name + ' 학생이 학교 폭력 신고 장치를 통해 도움을 요청하였습니다.\n\n아래 링크를 통해 신고 위치를 확인하십시오.\n\n\n\n' + 'https://www.google.com/maps/search/?api=1&query=' + received_lat + ',' + received_lon + '\n\n\n'
+    
+            #경민이 종설 때문에 바꾼 코드
+            email_body = '배터리가 부족합니다.\n 충전해주세요'
+    
+            #경민이 종설 때문에 바꾼 코드 --> 무력화시킴
+            # e-mail to parents
+            # email_parents = EmailMessage('귀하의 자녀 ' + emer_kid_name + '(으)로부터 도움 요청', email_body, to=[emer_kid_parent_email])
+    
+            #경민이 종설 때문에 바꾼 코드
+            # email_parents = EmailMessage('충전 요청', email_body, to=[emer_kid_parent_email])
+            #2020-10-20 내 종설 때문에 다시 바꾼 코드
+            email_parents = EmailMessage('충전 요청', email_body, to=[emer_kid_parent_email])
+    
+            email_parents.send()
+    
+            #경민이 종설 때문에 바꾼 코드 --> 무력화시킴
+            # e-mail to police
+            # if received_string[1]=='1':
+            #     # to Police --> add kid information to common email body.
+            #     emer_kid_info = '학생 정보 :\n\n' + '이름 : ' + emer_kid_name + '\n' + '나이 : ' + emer_kid_age + '\n' + '학교 : ' + emer_kid_school + '\n' + '학급 : ' + emer_kid_class + '\n' + '학교 폭력 피해 전력 : ' + emer_kid_past_bullied_record
+    
+            #     email_police = EmailMessage('학교 폭력 신고가 발생하였습니다.', email_body + emer_kid_info, to=['katejohnsonfromkenya@gmail.com'])
+                # email_police.send()
+    
+    
+            # # **** dataType = string && test code(Just sends the string itself)
+            # received_string = request.body.decode('utf-8')
+            # if received_string[0]=='1':
+            #     email_police = EmailMessage('학교 폭력 신고가 발생하였습니다.', received_string, to=['katejohnsonfromkenya@gmail.com'])
+            #     email_police.send()
+    
+    
+    
+    
+    
+    
+            # **** dataType = JSON
+            # data = request.body.decode('utf-8')
+            # received_json_data = json.loads(data)
+            # # received_GPS = received_json_data.get("GPS")
+            # received_ID = received_json_data.get("ID")
+            # received_button1 = received_json_data.get("button1")
+            # received_button2 = received_json_data.get("button2")
+            # received_latitude = received_json_data.get("latitude")
+            # received_longitude = received_json_data.get("longitude")
+            # email = EmailMessage('Data is ', received_ID+received_button1+received_button2+received_latitude+received_lonigutde, to=['jinrudals135@gmail.com'])
+            # email.send()
+    
+    
+    
+            # **debug
+            # print('bad')
+            # print(received_GPS)
+    
+            
+    
+            # **** response = StreamingHttpResponse
+            # return StreamingHttpResponse('it was post request: '+str(received_json_data))
+    
+            # **** response = HttpResponse
+            return HttpResponse('it was post request')
+    
+            
+    
+    
+        else:
+            # **debug
+            # print('good')
+    
+            # **** response = StreamingHttpResponse
+            # return StreamingHttpResponse('it was GET request')
+    
+            # **** response = HttpResponse
+            return HttpResponse('it was GET request')
+    except:
+        return HttpResponse("it didn't even go through if statement")

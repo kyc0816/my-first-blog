@@ -16,4 +16,4 @@ url = "http://kyc0816.pythonanywhere.com/service_learning/"
 data = '1138.1111127.1111'
 r=requests.post(url, data=data)
 
-r.text
+print(r)
