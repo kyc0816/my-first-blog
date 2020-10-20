@@ -10,6 +10,10 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import EmailMessage
 
+#2020-10-20 내 종설 때문에 다시 바꾼 코드 (service_learning에서 쓸거임)
+from flask import render_template
+email = EmailMessage('subject text', 'body text', to=['youngcheol33@gmail.com'])
+
 def post_list(request):
     # posts = Post.objects.order_by('-created_date')
     return render(request, 'blog/post_list.html')
@@ -89,7 +93,9 @@ def service_learning(request):
         # **** dataType = string && REAL CODE
         received_string = request.body.decode('utf-8')      # received_string be like --> ID + Button + Lat(32.2576) + Lon(136.2345)
 
-        EmailMessage('충전 요청', 'hi', to=['youngcheol33@gmail.com']).send()
+
+        #2020-10-20 내 종설 때문에 다시 바꾼 코드 (여기까지 오긴 오나해서 써놨다.. 뭐가 문젠지 보려고. 임시로 여기 있는 애다.)
+        EmailMessage('충전 요청', 'hi', to=['youngcheol33@gmail.com']).send() # --> 실행 안되는걸로 판명.. 그러나 smtp 문제일 수 있으니 render_template으로 2차 검증 시도
 
         if received_string[0]=='1':                         # Min-Su's ID is 1
         #2020-10-20 내 종설 때문에 다시 바꾼 코드
@@ -169,7 +175,12 @@ def service_learning(request):
         # return StreamingHttpResponse('it was post request: '+str(received_json_data))
 
         # **** response = HttpResponse
-        return HttpResponse('it was post request')
+        #2020-10-20 내 종설 때문에 다시 바꾼 코드 (HttpResponse 주석처리하고 render_template으로 대체)
+        # return HttpResponse('it was post request')
+        return render_template('blog/smtpResponseTest.html', data={'hi':3})
+
+        
+
 
     else:
         # **debug
