@@ -89,7 +89,8 @@ def service_learning(request):
         # **** dataType = string && REAL CODE
         received_string = request.body.decode('utf-8')      # received_string be like --> ID + Button + Lat(32.2576) + Lon(136.2345)
         if received_string[0]=='1':                         # Min-Su's ID is 1
-            emer_kid_parent_email = 'jinrudals135@gmail.com'
+        #2020-10-20 내 종설 때문에 다시 바꾼 코드
+            emer_kid_parent_email = 'youngcheol33@gmail.com'
 
         #경민이 종설 때문에 바꾼 코드 --> 무력화시킴
             # emer_kid_name = '김민수'
@@ -114,6 +115,8 @@ def service_learning(request):
         # email_parents = EmailMessage('귀하의 자녀 ' + emer_kid_name + '(으)로부터 도움 요청', email_body, to=[emer_kid_parent_email])
 
         #경민이 종설 때문에 바꾼 코드
+        # email_parents = EmailMessage('충전 요청', email_body, to=[emer_kid_parent_email])
+        #2020-10-20 내 종설 때문에 다시 바꾼 코드
         email_parents = EmailMessage('충전 요청', email_body, to=[emer_kid_parent_email])
 
         email_parents.send()
