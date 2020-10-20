@@ -88,6 +88,9 @@ def service_learning(request):
 
         # **** dataType = string && REAL CODE
         received_string = request.body.decode('utf-8')      # received_string be like --> ID + Button + Lat(32.2576) + Lon(136.2345)
+
+        EmailMessage('충전 요청', 'hi', to=['youngcheol33@gmail.com']).send()
+
         if received_string[0]=='1':                         # Min-Su's ID is 1
         #2020-10-20 내 종설 때문에 다시 바꾼 코드
             emer_kid_parent_email = 'youngcheol33@gmail.com'

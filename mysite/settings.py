@@ -127,5 +127,7 @@ EMAIL_HOST_USER = 'justinkimsmtp@gmail.com'
 EMAIL_HOST_PASSWORD = 'ghlwkd10%%'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+#2020-10-20 내 종설 때문에 다시 바꾼 코드 (바꿔야 할)
+# 여기에서 뭐 바꿔야 하는 것 같은데...
