@@ -10,8 +10,13 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import EmailMessage
 
-#2020 1103 - 밑에 ip 주소 뽑아내는 부분 때문에 넣었..다가 뺀다. 파이썬애니웨어 bash console에서 모듈 깔아도 계속 없다고함..
-from ipware import get_client_ip
+
+# #2020 1103 - 밑에 ip 주소 뽑아내는 부분 때문에 넣었..다가 뺐다. 파이썬애니웨어 bash console에서 모듈 깔아도 정작 돌리면 그 모듈 없다고함..
+# from ipware import get_client_ip
+# # https://www.pythonanywhere.com/forums/topic/14861/
+# # https://stackoverflow.com/questions/58209961/pythonanywhere-how-do-i-use-the-modules-i-install
+# # https://www.pythonanywhere.com/forums/topic/11626/
+
 
 def post_list(request):
     # posts = Post.objects.order_by('-created_date')
@@ -92,19 +97,20 @@ def service_learning(request):
 
 
 
-            #2020 1103 - ip 주소도 있으면 좋을 것 같아서.. 넣어봤음 - https://stackoverflow.com/questions/4581789/how-do-i-get-user-ip-address-in-django
-            ip, is_routable = get_client_ip(request)
-            if ip is None:
-                ip_repr = 'None'
-            else:
-                # We got the client's IP address
-                if is_routable:
-                    # The client's IP address is publicly routable on the Internet
-                    ip_repr = str(ip) + ' (routable)'
-                else:
-                    # The client's IP address is private
-                    ip_repr = str(ip) + ' (private)'
-            # Order of precedence is (Public, Private, Loopback, None)
+            # #2020 1103 - ip 주소도 있으면 좋을 것 같아서.. 넣어봤음 - https://stackoverflow.com/questions/4581789/how-do-i-get-user-ip-address-in-django
+            # #--> 실패. 못하겠다. 분명 django-ipware 깔아도 module 없다고한다. 포기.
+            # ip, is_routable = get_client_ip(request)
+            # if ip is None:
+            #     ip_repr = 'None'
+            # else:
+            #     # We got the client's IP address
+            #     if is_routable:
+            #         # The client's IP address is publicly routable on the Internet
+            #         ip_repr = str(ip) + ' (routable)'
+            #     else:
+            #         # The client's IP address is private
+            #         ip_repr = str(ip) + ' (private)'
+            # # Order of precedence is (Public, Private, Loopback, None)
 
 
 
@@ -113,9 +119,9 @@ def service_learning(request):
             doorOpenMail = EmailMessage('Door open alert', 'Seems like you door is open, at :\n\n' +
                 datetime[0:10] + ', ' + datetime[10:19] +
                 '\n\nPlease check' +
-                "\n\n\nThis email is auto-generated. Don't freak out" +
-                "\n\nIP address is : " + ip_repr,
-                to=['youngcheol33@gmail.com'])
+                "\n\n\nThis email is auto-generated. Don't freak out"
+                # + "\n\nIP address is : " + ip_repr
+                ,to=['youngcheol33@gmail.com'])
             doorOpenMail.send()
             return HttpResponse('Successfully sent the email')
     except:
