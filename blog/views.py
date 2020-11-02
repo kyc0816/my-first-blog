@@ -86,8 +86,10 @@ def post_edit(request, pk):
 def service_learning(request):
     if request.method == 'GET':
         #2020 1102.. 결국 여기로 다시 왔다.. 시도해본다
-        datetime = str(timezone.localtime())[0:17]
-        doorOpenMail = EmailMessage('Door open alert', 'Seems like door is open at ' + datetime + '. Please check', to=['youngcheol33@gmail.com'])
+        datetime = str(timezone.localtime())[0:19]
+        doorOpenMail = EmailMessage('Door open alert', 'Seems like door is open at :\n\n' +
+            datetime[0:10] + ', ' + datetime[10:19] +
+            '. \n\nPlease check', to=['youngcheol33@gmail.com'])
         doorOpenMail.send()
         return ("Sent")
 
