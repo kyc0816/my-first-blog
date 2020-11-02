@@ -14,6 +14,9 @@ url = "http://kyc0816.pythonanywhere.com/service_learning/"
 
 # **** dataType = string
 data = '1138.1111127.1111'
-r=requests.post(url, data=data)
+
+#2020 1102 post 아니고 get이라서 data 빼고 url만 넣었음
+r=requests.get(url)
+# r=requests.post(url, data=data)
 print(3)
 print(r)
