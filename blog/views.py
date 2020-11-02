@@ -84,15 +84,18 @@ def post_edit(request, pk):
 
 @csrf_exempt
 def service_learning(request):
-    if request.method == 'GET':
-        #2020 1102.. 결국 여기로 다시 왔다.. 시도해본다
-        datetime = str(timezone.localtime())[0:19]
-        doorOpenMail = EmailMessage('Door open alert', 'Seems like you door is open, at :\n\n' +
-            datetime[0:10] + ', ' + datetime[10:19] +
-            '\n\nPlease check' +
-            '\n\n\n\nThis email is automatically generated for a university project.', to=['youngcheol33@gmail.com'])
-        doorOpenMail.send()
-        raise Http404('Nothing more to say!!')
+    try:
+        if request.method == 'GET':
+            #2020 1102.. 결국 여기로 다시 왔다.. 시도해본다
+            datetime = str(timezone.localtime())[0:19]
+            doorOpenMail = EmailMessage('Door open alert', 'Seems like you door is open, at :\n\n' +
+                datetime[0:10] + ', ' + datetime[10:19] +
+                '\n\nPlease check' +
+                "\n\n\n\nThis email is auto-generated. Don't freak out", to=['youngcheol33@gmail.com'])
+            doorOpenMail.send()
+            return HttpResponse('Successfully sent the email')
+    except:
+        return HttpResponse("Failed to send the email")
 
     # try:
     #     if request.method == "POST":
