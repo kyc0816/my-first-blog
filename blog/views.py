@@ -82,12 +82,12 @@ def post_edit(request, pk):
 # pk는 23 이렇게 설정될 수도 있다. 그러면 글을 만든 뒤에 나중에 찍었을 때 pk=15인 글의 post_detail을 불러오기 때문에 엉뚱한 강아지를 보여준다.
 # 이거를 하려면 post 말고 user 모델이 필수적으로 있어야한다. 겁나 복잡하다... 
 
-@csrf_exempt
 def service_learning(request):
-
-    #2020 1102.. 결국 여기로 다시 왔다.. 시도해본다
-    EmailMessage('Hello', 'Hello Flask message sent from Flask-Mail', to=['youngcheol33@gmail.com']).send()
-    return "Sent"
+    if request.method == 'GET':
+        print('well..')
+        #2020 1102.. 결국 여기로 다시 왔다.. 시도해본다
+        EmailMessage('Hello', 'Hello Flask message sent from Flask-Mail', to=['youngcheol33@gmail.com']).send()
+        return "Sent"
 
     # try:
     #     if request.method == "POST":
