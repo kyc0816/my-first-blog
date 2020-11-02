@@ -123,11 +123,19 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = "smtp.gmail.com"
-EMAIL_HOST_USER = 'justinkimsmtp@gmail.com'
-EMAIL_HOST_PASSWORD = 'ghlwkd10%%'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+#2020 1102... 로컬에선 되니까.. 밑에 다섯줄 주석처리하고 요렇게 다섯줄 새로 써봤다..
+EMAIL_HOST_USER = 'justinlearningdeep@gmail.com'
+EMAIL_HOST_PASSWORD = 'ghlwkd10%'
+EMAIL_PORT = 465
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+
+# EMAIL_HOST_USER = 'justinkimsmtp@gmail.com'
+# EMAIL_HOST_PASSWORD = 'ghlwkd10%%'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 #2020-10-20 내 종설 때문에 다시 바꾼 코드 (바꿔야 할)
 # 여기에서 뭐 바꿔야 하는 것 같은데...

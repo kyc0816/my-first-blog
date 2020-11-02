@@ -10,9 +10,6 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import EmailMessage
 
-#1102 종설프
-from flask_mail import Mail,  Message
-
 def post_list(request):
     # posts = Post.objects.order_by('-created_date')
     return render(request, 'blog/post_list.html')
@@ -87,11 +84,9 @@ def post_edit(request, pk):
 
 @csrf_exempt
 def service_learning(request):
-    #1102 종설프
-    msg = Message('Hello', sender = 'justinlearningdeep@gmail.com', recipients = ['youngcheol33@gmail.com'])
-    datetime = timezone.now()
-    msg.body = "Hello Flask message sent from Flask-Mail" + " / " + datetime
-    mail.send(msg)
+
+    #2020 1102.. 결국 여기로 다시 왔다.. 시도해본다
+    EmailMessage('Hello', 'Hello Flask message sent from Flask-Mail', to=['youngcheol33@gmail.com']).send()
     return "Sent"
 
     # try:
