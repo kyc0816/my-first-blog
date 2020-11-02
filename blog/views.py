@@ -11,8 +11,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import EmailMessage
 
 #2020 1103 - 밑에 ip 주소 뽑아내는 부분 때문에 넣음
-from ipware import get_client_ip
-# import sys
+# from ipware import get_client_ip
+import sys
 
 def post_list(request):
     # posts = Post.objects.order_by('-created_date')
