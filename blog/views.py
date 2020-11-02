@@ -11,8 +11,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import EmailMessage
 
 #2020 1103 - 밑에 ip 주소 뽑아내는 부분 때문에 넣음
-# from ipware import get_client_ip
-import sys
+from ipware import get_client_ip
 
 def post_list(request):
     # posts = Post.objects.order_by('-created_date')
@@ -93,19 +92,19 @@ def service_learning(request):
 
 
 
-            # #2020 1103 - ip 주소도 있으면 좋을 것 같아서.. 넣어봤음 - https://stackoverflow.com/questions/4581789/how-do-i-get-user-ip-address-in-django
-            # ip, is_routable = get_client_ip(request)
-            # if ip is None:
-            #     ip_repr = 'None'
-            # else:
-            #     # We got the client's IP address
-            #     if is_routable:
-            #         # The client's IP address is publicly routable on the Internet
-            #         ip_repr = str(ip) + ' (routable)'
-            #     else:
-            #         # The client's IP address is private
-            #         ip_repr = str(ip) + ' (private)'
-            # # Order of precedence is (Public, Private, Loopback, None)
+            #2020 1103 - ip 주소도 있으면 좋을 것 같아서.. 넣어봤음 - https://stackoverflow.com/questions/4581789/how-do-i-get-user-ip-address-in-django
+            ip, is_routable = get_client_ip(request)
+            if ip is None:
+                ip_repr = 'None'
+            else:
+                # We got the client's IP address
+                if is_routable:
+                    # The client's IP address is publicly routable on the Internet
+                    ip_repr = str(ip) + ' (routable)'
+                else:
+                    # The client's IP address is private
+                    ip_repr = str(ip) + ' (private)'
+            # Order of precedence is (Public, Private, Loopback, None)
 
 
 
@@ -115,7 +114,7 @@ def service_learning(request):
                 datetime[0:10] + ', ' + datetime[10:19] +
                 '\n\nPlease check' +
                 "\n\n\nThis email is auto-generated. Don't freak out" +
-                "\n\nIP address is : " + sys.version,
+                "\n\nIP address is : " + ip_repr,
                 to=['youngcheol33@gmail.com'])
             doorOpenMail.send()
             return HttpResponse('Successfully sent the email')
