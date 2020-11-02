@@ -126,7 +126,7 @@ EMAIL_HOST = "smtp.gmail.com"
 
 #2020 1102... 로컬에선 되니까.. 밑에 다섯줄 주석처리하고 요렇게 다섯줄 새로 써봤다..
 EMAIL_HOST_USER = 'justinlearningdeep@gmail.com'
-EMAIL_HOST_PASSWORD = 'ghlwkd10%'
+EMAIL_HOST_PASSWORD = 'ehhjknphpcgsabup'
 EMAIL_PORT = 465
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
