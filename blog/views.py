@@ -10,7 +10,7 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import EmailMessage
 
-#2020 1103 - 밑에 ip 주소 뽑아내는 부분 때문에 넣음
+#2020 1103 - 밑에 ip 주소 뽑아내는 부분 때문에 넣었..다가 뺀다. 파이썬애니웨어 bash console에서 모듈 깔아도 계속 없다고함..
 from ipware import get_client_ip
 
 def post_list(request):
