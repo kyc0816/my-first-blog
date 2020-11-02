@@ -87,8 +87,9 @@ def service_learning(request):
     if request.method == 'GET':
         #2020 1102.. 결국 여기로 다시 왔다.. 시도해본다
         datetime = str(timezone.now())
-        EmailMessage('This email is sent automatically from... me lol', 'Current time of Virginia is... / ' + datetime + 'I love you baby', to=['rachwheele@gmail.com', 'youngcheol33@gmail.com']).send()
-        return "Sent"
+        doorOpenMail = EmailMessage('This email is sent automatically from... me lol', 'Current time of Virginia is... / ' + datetime + 'I love you baby', to=['rachwheele@gmail.com', 'youngcheol33@gmail.com'])
+        doorOpenMail.send()
+        return ("Sent")
 
     # try:
     #     if request.method == "POST":

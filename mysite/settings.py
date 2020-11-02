@@ -125,6 +125,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = "smtp.gmail.com"
 
 #2020 1102... 로컬에선 되니까.. 밑에 다섯줄 주석처리하고 요렇게 다섯줄 새로 써봤다..
+#된다!!!!!! 드디어 된다 뭐 바꾸니까 되는지 정확히 기억은 안나는데 587로 바꾸고나서 된 것 같다
+#아 아니다 앱 비밀번호 만드니까 된 듯. 만들고나서 git pull만 하고 reload를 안해서 안됐었는데
+#그거 깨닫고 reload 눌러주니까 된 듯
 EMAIL_HOST_USER = 'justinlearningdeep@gmail.com'
 EMAIL_HOST_PASSWORD = 'ehhjknphpcgsabup'
 EMAIL_PORT = 587
