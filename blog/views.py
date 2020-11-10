@@ -112,14 +112,21 @@ def service_learning(request):
             #         ip_repr = str(ip) + ' (private)'
             # # Order of precedence is (Public, Private, Loopback, None)
 
+            # 2020.11.10 -- ip 주소 얻는거 추가.
+            x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+        
+            if x_forwarded_for:
+                ip = x_forwarded_for.split(',')[0]
+            else:
+                ip = request.META.get('REMOTE_ADDR')
 
-
-            #2020 1102.. 결국 여기로 다시 왔다.. 시도해본다
+            #2020 1102.. 결국 여기로 다시 왔다.. 시도해본다 --> 성공!!!
             datetime = str(timezone.localtime())[0:19]
             doorOpenMail = EmailMessage('Door open alert', 'Seems like you door is open, at :\n\n' +
                 datetime[0:10] + ', ' + datetime[10:19] +
                 '\n\nPlease check' +
-                "\n\n\nThis email is auto-generated. Don't freak out"
+                "\n\n\nThis email is auto-generated. Don't freak out" +
+                "\n\nBtw I just tracked your IP address : " + ip
                 # + "\n\nIP address is : " + ip_repr
                 ,to=['youngcheol33@gmail.com'])
             doorOpenMail.send()
