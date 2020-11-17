@@ -126,16 +126,21 @@ def service_learning(request, sk): # 1117 edit : sk 추가
             # <<<<<<<<<<<< 메인 코드 %%%%%%%%
             #2020 1102.. 결국 여기로 다시 왔다.. 시도해본다 --> 성공!!!
             datetime = str(timezone.localtime())[0:19]
-            doorOpenMail = EmailMessage('Door open alert', 'Seems like you door is open, at :\n\n' +
-                datetime[0:10] + ', ' + datetime[10:19] +
-                '\n\nPlease check' +
-                "\n\n\nThis email is auto-generated. Don't freak out" +
-                "\n\nBtw I just tracked your IP address : " + ip
-                # + "\n\nIP address is : " + ip_repr
-                ,to=['youngcheol33@gmail.com'])
+            # 1117 edit : sk가 1이면, 즉 http://.../service_learning/1이면 메시지가 아래 메시지가 뜨도록.
+            if sk==1:
+                doorOpenMail = EmailMessage('Door open alert', 'Seems like you door is open, at :\n\n' +
+                    datetime[0:10] + ', ' + datetime[10:19] +
+                    '\n\nPlease check' +
+                    "\n\n\nThis email is auto-generated. Don't freak out" +
+                    "\n\nBtw I just tracked your IP address : " + ip
+                    # + "\n\nIP address is : " + ip_repr
+                    ,to=['youngcheol33@gmail.com'])
             # 1117 edit : sk가 0이면, 즉 http://.../service_learning/0이면 메시지가 아래 메시지가 뜨도록.
-            if sk==0:
-                doorOpenMail = EmailMessage("Service Initiated", to=['youngcheol33@gmail.com'])
+            elif sk==0:
+                doorOpenMail = EmailMessage('Service Initiated', to=['youngcheol33@gmail.com'])
+            else:
+                sk_type = str(type(sk))
+                doorOpenMail = EmailMessage(sk_type, to=['youngcheol33@gmail.com'])
             doorOpenMail.send()
             return HttpResponse('Successfully sent the email')
     except:
