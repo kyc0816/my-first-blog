@@ -91,14 +91,13 @@ def post_edit(request, pk):
 # 이거를 하려면 post 말고 user 모델이 필수적으로 있어야한다. 겁나 복잡하다... 
 
 @csrf_exempt
-def service_learning(request):
+def service_learning(request, sk): # 1117 edit : sk 추가
     try:
         if request.method == 'GET':
 
-
-
+            # <<<<<<<<<<<< IP 주소 관련 - 실패 %%%%%%%%
             # #2020 1103 - ip 주소도 있으면 좋을 것 같아서.. 넣어봤음 - https://stackoverflow.com/questions/4581789/how-do-i-get-user-ip-address-in-django
-            # #--> 실패. 못하겠다. 분명 django-ipware 깔아도 module 없다고한다. 포기.
+            # #--> 실패. 못하겠다. 분명 django-ipware 깔아도 module 없다고한다. 포기. (요거 바로 밑에 ip 주소 얻는코드는 성공임)
             # ip, is_routable = get_client_ip(request)
             # if ip is None:
             #     ip_repr = 'None'
@@ -112,7 +111,10 @@ def service_learning(request):
             #         ip_repr = str(ip) + ' (private)'
             # # Order of precedence is (Public, Private, Loopback, None)
 
-            # 2020.11.10 -- ip 주소 얻는거 추가.
+
+            # <<<<<<<<<<<< IP 주소 관련 - 성공 %%%%%%%%
+            # 2020.11.10 -- ip 주소 얻는거 추가. (성공) 근데 이걸로 location까지는 추적 불가. esp8266으로 gps 없이 location 찾아내는 방법 있는 듯. 아래 링크 참조
+            # https://www.electronicsforu.com/electronics-projects/gps-geolocation-using-esp8266-projects --> 구현해야됨
             x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
         
             if x_forwarded_for:
@@ -120,6 +122,8 @@ def service_learning(request):
             else:
                 ip = request.META.get('REMOTE_ADDR')
 
+
+            # <<<<<<<<<<<< 메인 코드 %%%%%%%%
             #2020 1102.. 결국 여기로 다시 왔다.. 시도해본다 --> 성공!!!
             datetime = str(timezone.localtime())[0:19]
             doorOpenMail = EmailMessage('Door open alert', 'Seems like you door is open, at :\n\n' +
@@ -129,6 +133,9 @@ def service_learning(request):
                 "\n\nBtw I just tracked your IP address : " + ip
                 # + "\n\nIP address is : " + ip_repr
                 ,to=['youngcheol33@gmail.com'])
+            # 1117 edit : sk가 0이면, 즉 http://.../service_learning/0이면 메시지가 아래 메시지가 뜨도록.
+            if sk==0:
+                doorOpenMail = EmailMessage("Service Initiated", to=['youngcheol33@gmail.com'])
             doorOpenMail.send()
             return HttpResponse('Successfully sent the email')
     except:

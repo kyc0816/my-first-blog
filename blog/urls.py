@@ -14,5 +14,6 @@ urlpatterns = [
 
 
     # service learning code from below
-    url(r'^service_learning/$', views.service_learning, name='service_learning'),
+    # 1117 edit : (?P<sk>\d+) 추가했다
+    url(r'^service_learning/(?P<sk>\d+)/$', views.service_learning, name='service_learning'),
 ]
