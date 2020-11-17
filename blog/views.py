@@ -132,12 +132,15 @@ def service_learning(request, sk): # 1117 edit : sk 추가
                     datetime[0:10] + ', ' + datetime[10:19] +
                     '\n\nPlease check' +
                     "\n\n\nThis email is auto-generated. Don't freak out" +
-                    "\n\nBtw I just tracked your IP address : " + ip
+                    "\n\nSystem detected the IP address of Internet connection provider : " + ip
                     # + "\n\nIP address is : " + ip_repr
                     ,to=['youngcheol33@gmail.com'])
             # 1117 edit : sk가 0이면, 즉 http://.../service_learning/0이면 메시지가 아래 메시지가 뜨도록.
             elif int(sk)==0:
-                doorOpenMail = EmailMessage('Service Initiated', to=['youngcheol33@gmail.com'])
+                doorOpenMail = EmailMessage('Service Initiated Alert', 'Service has been initiated, at :\n\n' +
+                    datetime[0:10] + ', ' + datetime[10:19] +
+                    "\n\nSystem detected the IP address of Internet connection provider : " + ip
+                    , to=['youngcheol33@gmail.com'])
             # 1117 - 위의 if sk==0, 1 조건문이 발동이 안돼서 혹시 type 문제인가하고 이렇게 해보니 sk는 integer가 아니라 string이었다.
             # else: 
             #     sk_type = str(type(sk))
